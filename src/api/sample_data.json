@@ -1,0 +1,26 @@
+[
+    {
+      "id": "1",
+      "name": "Ann Henry",
+      "job_title": "Product Manager",
+      "birth_date": "1990-04-12",
+      "country_code": "us",
+      "salary": 60000
+    },
+    {
+      "id": "2",
+      "name": "Annette Williamson",
+      "job_title": "CEO",
+      "birth_date": "1985-04-20",
+      "country_code": "us",
+      "salary": 60000
+    },
+    {
+      "id": "3",
+      "name": "Philip Alexander",
+      "job_title": "Software Engineer",
+      "birth_date": "1989-07-25",
+      "country_code": "us",
+      "salary": 60000
+    }
+  ]
