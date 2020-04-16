@@ -50,6 +50,12 @@ To save some time, I only wrote tests for API; and added a few test examples for
 
 ## Other considerations
 
+### Backend mock
+
+For simplicity, backend mock is implemented without any persistence. However, design of the backend api allows implementation of any persistence mechanism like in-browser localstorage or REST API.
+
+### Design
+
 In some places, design elements were off the grid by a couple of pixels — I such scenarios, I didn't stick to Figma's mockups but
 allowed myself to round up and align elements. In real work, I would discuss this with design author.
 
