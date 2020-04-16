@@ -37,10 +37,6 @@ are not allowed — this way, each page can be developed and deployed in isolati
 
 If there is a need to reuse a component between pages, it should be extracted into shared `./components` directory and treated with care(and tests);
 
-### Tests
-
-To save some time, I only wrote tests for API; and added a few test examples for App to demonstrate testing of a React component.
-
 ## Other considerations
 
 ### Typescript and CSS Modules
@@ -53,6 +49,10 @@ and improves codebase quality in the long run.
 CSS Modules is one of the simplest CSS-in-js solutions. By using scoped
 CSS classes by default, we reduce the complexity of codebase and, again,
 increase quality in the long run.
+
+### Tests
+
+To save some time, I only wrote tests for API; and added a few test examples for App to demonstrate testing of a React component.
 
 ### Backend mock
 
