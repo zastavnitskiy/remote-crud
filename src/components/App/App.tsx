@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Provider } from "../api";
+import { Provider } from "../../api";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,9 +8,9 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { New, Edit, View } from "../pages";
+import { New, Edit, View } from "../../pages";
 
-function App() {
+export function App() {
   return (
     <Provider>
       <Router>
@@ -35,5 +35,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;

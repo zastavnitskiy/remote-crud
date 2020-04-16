@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 import { classnames } from "../../helpers/classnames";
 
 interface CustomProps {

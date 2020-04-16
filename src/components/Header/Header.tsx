@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../User";
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
 export const Header: React.SFC = () => {
   return (
