@@ -8,7 +8,7 @@
   font-size: 13px;
   line-height: 16px;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .container:focus-within .label {
@@ -37,7 +37,18 @@
   /* Steel Blue */
   color: #525f7f;
   border: none;
-  border-bottom: 1px solid #ced5db;
+  background: none;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-bottom: 1px solid transparent;
+}
+
+.select {
+  background-image: url(./arrow.png);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 11px 7px;
 }
 
 .input:focus {

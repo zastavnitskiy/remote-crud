@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Input } from "..";
 import { Link, Redirect } from "react-router-dom";
 import { Employee, NewEmployee, UpdateEmployeeDiff, API } from "../../api/api";
+import { countries } from "../../helpers/countries";
 
 type EmployeeProps = keyof Employee;
 
@@ -27,7 +28,6 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (api) {
-      debugger;
       if ((state as Employee).id) {
         api.update(state as UpdateEmployeeDiff).then(() => {
           setRedirect(true);
@@ -74,7 +74,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         placeholder="e.g. 17/02/1990"
         description="DD/MM/YYYY"
         value={state.birth_date}
-        onChange={(e) => handleChange("name", e.target.value)}
+        onChange={(e) => handleChange("birth_date", e.target.value)}
       ></Input>
 
       <Input
@@ -83,7 +83,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         placeholder="e.g. Product Manager"
         description="What is their role?"
         value={state.job_title}
-        onChange={(e) => handleChange("name", e.target.value)}
+        onChange={(e) => handleChange("job_title", e.target.value)}
       ></Input>
 
       <Input
@@ -92,7 +92,9 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         placeholder=""
         description="Where are they based?"
         value={state.country_code}
-        onChange={(e) => handleChange("name", e.target.value)}
+        type="select"
+        options={countries}
+        onChange={(e) => handleChange("country_code", e.target.value)}
       ></Input>
 
       <Input
@@ -101,7 +103,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         placeholder="e.g. 50000"
         description="Gross yearly salary"
         value={state.salary}
-        onChange={(e) => handleChange("name", e.target.value)}
+        onChange={(e) => handleChange("salary", e.target.value)}
       ></Input>
     </Form>
   );

@@ -1,3 +1,3 @@
-export { Edit } from "./Edit";
-export { List } from "./List";
-export { New } from "./New";
+export { Edit } from "./Edit/Edit";
+export { View } from "./View/View";
+export { New } from "./New/New";

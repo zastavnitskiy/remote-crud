@@ -1,5 +1,4 @@
 .container {
-  outline: lime 1px solid;
   display: flex;
   align-items: flex-start;
 }

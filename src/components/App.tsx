@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { New, Edit, List } from "../pages";
+import { New, Edit, View } from "../pages";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           </Route>
 
           <Route path="/employees">
-            <List />
+            <View />
           </Route>
 
           <Route path="/">

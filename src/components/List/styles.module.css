@@ -1,0 +1,82 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  padding: 0 26px;
+  margin: 0 0 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.headerRow {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #778ca3;
+}
+
+.cardRow {
+  background: #ffffff;
+  box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.column {
+  text-align: left;
+  margin-right: 26px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #525f7f;
+}
+
+.column:last-child {
+  margin-right: 0;
+  margin-left: auto;
+}
+.columnName {
+  min-width: 206px;
+}
+
+.columnJobTitle {
+  min-width: 217px;
+}
+.columnCountry {
+  min-width: 159px;
+}
+.columnSalary {
+  min-width: 196px;
+}
+.columnActions {
+}
+
+.name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #00234b;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+.nameMeta {
+  font-size: 14px;
+  line-height: 22px;
+  color: #778ca3;
+}
+
+/* 206, 217, 159, 196 */

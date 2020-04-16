@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: baseline;
+}
+.salaryType {
+  font-size: 13px;
+  line-height: 18px;
+  color: #778ca3;
+}

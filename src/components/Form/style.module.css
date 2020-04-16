@@ -30,6 +30,8 @@
 
 .inputs {
   padding: 34px 36px 30px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .actions {
