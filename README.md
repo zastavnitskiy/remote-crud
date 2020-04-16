@@ -1,5 +1,7 @@
 # An example of a CRUD app.
 
+![Preview](https://github.com/zastavnitskiy/remote-crud/raw/master/preview.png "Remote app preview")
+
 This project is bootstrapped with Create-react-app, and configured to use
 Typescript and CSS modules.
 
@@ -36,3 +38,8 @@ API mock is covered by jest unit tests, and React components would be covered wi
 
 In some places, design elements were of the grid by a couple of pixels — I such scenarios, I didn't stick to Figma's mockups, but
 allowed myself to round up and align elements. In real work, I would discuss this with design author.
+
+I didn't find a way to extract SVGs for human icon and select down arrow from Figma, so I used alternatives.
+
+I defaulted to action and implemented very basic mobile media queries, so that the app would look okay on mobile
+(there is still an ugly in-between state around 1000px, it can definitely be improved).

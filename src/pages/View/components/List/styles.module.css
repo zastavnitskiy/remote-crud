@@ -93,6 +93,7 @@
   .cardRow .column {
     flex: 0 1 100%;
   }
+
   .cardRow .columnActions {
     display: flex;
     justify-content: flex-end;
