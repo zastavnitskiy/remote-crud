@@ -1,13 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
 
-interface Props {
-  title: React.ReactNode;
-  subtitle?: React.ReactNode;
-  actions: ActionGroupProps["actions"];
-  onSubmit: React.FormHTMLAttributes<HTMLFormElement>["onSubmit"];
-}
-
 interface ActionGroupProps {
   actions: React.ReactNode[];
 }
@@ -23,6 +16,13 @@ const ActionGroup: React.SFC<ActionGroupProps> = ({ actions }) => {
     </>
   );
 };
+
+interface Props {
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  actions: ActionGroupProps["actions"];
+  onSubmit: React.FormHTMLAttributes<HTMLFormElement>["onSubmit"];
+}
 
 export const Form: React.SFC<Props> = ({
   title,

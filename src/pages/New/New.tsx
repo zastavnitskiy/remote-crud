@@ -1,8 +1,8 @@
 import React from "react";
 import { Layout } from "../../components";
+import { EmployeeForm } from "../../components/EmployeeForm/EmployeeForm";
 import { useAPI } from "../../api";
 import { EmptyEmployee } from "../../api/api";
-import { EmployeeForm } from "../../components/EmployeeForm/EmployeeForm";
 
 export const New: React.SFC = () => {
   const { api } = useAPI();

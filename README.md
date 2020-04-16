@@ -14,6 +14,9 @@ increase quality in the long run.
 
 # Architecture & File structure overview
 
+Main entry point is `./src/index.ts` file. The app is implemented as a Single Page Application and
+users react-router for client-side routing.
+
 ## File structure
 
 `./api` directory contains a mock of backend API client. For simplicity, it doesn't
@@ -35,6 +38,8 @@ If there is a need to reuse a component between pages, it should be extracted in
 To save some time, I only wrote tests for API; and added a few test examples for App to demonstrate testing of a React component.
 
 # Other considerations
+
+## Design
 
 In some places, design elements were off the grid by a couple of pixels — I such scenarios, I didn't stick to Figma's mockups but
 allowed myself to round up and align elements. In real work, I would discuss this with design author.

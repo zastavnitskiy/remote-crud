@@ -1,9 +1,9 @@
 import React from "react";
-import { Layout, Button } from "../../components";
-import { useAPI } from "../../api";
 import { useParams, Link } from "react-router-dom";
-import { Employee } from "../../api/api";
+import { Layout, Button } from "../../components";
 import { EmployeeForm } from "../../components/EmployeeForm/EmployeeForm";
+import { useAPI } from "../../api";
+import { Employee } from "../../api/api";
 
 interface EditPageParams {
   employee_id: Employee["id"];

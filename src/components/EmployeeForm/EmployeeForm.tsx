@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Form, Input, Button } from "..";
 import { Link, Redirect } from "react-router-dom";
+import { Form, Input, Button } from "..";
 import {
   Employee,
   NewEmployee,
@@ -12,19 +12,20 @@ import { countries } from "../../helpers/countries";
 
 type EmployeeProps = keyof Employee;
 
-interface EmployeeFormProps {
+interface Props {
   employee: Partial<Employee>;
   api?: API;
 }
 
+/**
+ * For now, validation is pretty generic — the only requied
+ * property of an Employee is name; everything else can be added later.
+ */
 function validate(employee: Partial<Employee>): boolean {
   return employee.name !== EmptyEmployee.name;
 }
 
-export const EmployeeForm: React.FC<EmployeeFormProps> = ({
-  employee,
-  api,
-}) => {
+export const EmployeeForm: React.FC<Props> = ({ employee, api }) => {
   const [state, setState] = useState<Partial<Employee>>(employee);
   const [redirect, setRedirect] = useState(false);
 

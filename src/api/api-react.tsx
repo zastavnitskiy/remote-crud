@@ -8,15 +8,25 @@ import React, {
 import { API, Employee } from "./api";
 import sampleData from "./sample_data.json";
 
-interface Context {
+interface APIContext {
   employees: Employee[];
   api?: API;
 }
 
-const APIContext = createContext<Context>({
+const APIContext = createContext<APIContext>({
   employees: [],
 });
 
+/**
+ * API Context provider.
+ *
+ * Custom provider that subscribes to api and allows using
+ * API in the nested components.
+ *
+ * Real-world implementation would be much more complex,
+ * this is a very basic example that stores api instance
+ * in a ref.
+ */
 export const Provider: React.SFC = ({ children }) => {
   const apiRef = useRef<API>();
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -42,7 +52,9 @@ export const Provider: React.SFC = ({ children }) => {
   );
 };
 
-/** A hook that integrates employees API and react */
+/**
+ * A custom hook that uses API from the context.
+ */
 export function useAPI() {
   const context = useContext(APIContext);
 

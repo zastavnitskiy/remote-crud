@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "../User";
+import { User } from "../";
 import styles from "./styles.module.css";
 
 export const Header: React.SFC = () => {
