@@ -1,14 +1,7 @@
 # Simple employee editor app ([view](http://remote-test.netlify.app/)).
 
-This project is bootstrapped with Create React App and configured to use
-Typescript and CSS modules.
-
-Typescript allows to catch and prevent multiple classes of runtime errors,
-and improves codebase quality in the long run.
-
-CSS Modules is one of the simplest CSS-in-js solutions. By using scoped
-CSS classes by default, we reduce the complexity of codebase and, again,
-increase quality in the long run.
+This project is an example of a web application that allows creating and editing
+Employees in an imaginary employee database. For simplicity, changes are only persisted in memory.
 
 ![Preview](https://github.com/zastavnitskiy/remote-crud/raw/master/preview.png "Remote app preview")
 
@@ -49,6 +42,17 @@ If there is a need to reuse a component between pages, it should be extracted in
 To save some time, I only wrote tests for API; and added a few test examples for App to demonstrate testing of a React component.
 
 ## Other considerations
+
+### Typescript and CSS Modules
+
+This project is implemented using Typescript over Javascript and CSS Modueles over standart CSS.
+
+Typescript allows to catch and prevent multiple classes of runtime errors,
+and improves codebase quality in the long run.
+
+CSS Modules is one of the simplest CSS-in-js solutions. By using scoped
+CSS classes by default, we reduce the complexity of codebase and, again,
+increase quality in the long run.
 
 ### Backend mock
 
