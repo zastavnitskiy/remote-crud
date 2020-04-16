@@ -1,0 +1,47 @@
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  border-bottom: 1px solid #eaedf3;
+  padding: 34px 36px 30px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  margin: 0;
+  color: #00234b;
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  /* identical to box height, or 157% */
+  margin: 0;
+  color: #525f7f;
+}
+
+.inputs {
+  padding: 34px 36px 30px;
+}
+
+.actions {
+  background-color: #f9faff;
+  border-radius: 0 0 10px 10px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.action {
+  margin-left: 8px;
+  margin-right: 8px;
+}

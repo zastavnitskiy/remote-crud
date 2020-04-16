@@ -12,7 +12,10 @@ export interface Employee {
   salary: number;
 }
 
-/**
+export type NewEmployee = Omit<Employee, "id">;
+export type UpdateEmployeeDiff = AlmostPartial<Employee, "id">;
+
+/*
  * Like partial, but keeps a single property mandatory
  */
 type AlmostPartial<T, K extends keyof T> = Partial<T> & Pick<T, K>;
@@ -26,12 +29,20 @@ interface Query {
 }
 
 interface Subscriber {
-  (employees: Employee[]): void
+  (employees: Employee[]): void;
 }
 
 interface Unsubscribe {
-  (): void
+  (): void;
 }
+
+export const EmptyEmployee: NewEmployee = {
+  name: "",
+  job_title: "",
+  birth_date: "",
+  country_code: "",
+  salary: 0,
+};
 
 export class API {
   private data: Employee[];
@@ -39,7 +50,7 @@ export class API {
 
   public constructor(sampleData: Employee[]) {
     this.data = sampleData || [];
-    this.subscribers = []
+    this.subscribers = [];
   }
 
   public async get(query?: Query): Promise<Employee[]> {
@@ -54,7 +65,7 @@ export class API {
     return results;
   }
 
-  public async create(entry: Omit<Employee, "id">): Promise<Employee> {
+  public async create(entry: NewEmployee): Promise<Employee> {
     const id = String(Date.now());
 
     const newEntry = {
@@ -69,9 +80,7 @@ export class API {
     return newEntry;
   }
 
-  public async update(
-    updateDiff: AlmostPartial<Employee, "id">
-  ): Promise<Employee> {
+  public async update(updateDiff: UpdateEmployeeDiff): Promise<Employee> {
     const [existingEntry] = await this.get({
       id: updateDiff.id,
     });
@@ -97,18 +106,18 @@ export class API {
   }
 
   private notifySubscribers() {
-    this.subscribers.forEach(subscriber => subscriber(this.data))
+    this.subscribers.forEach((subscriber) => subscriber(this.data));
   }
 
   public subscribe(fn: Subscriber): Unsubscribe {
-
     this.subscribers = [...this.subscribers, fn];
 
     fn(this.data);
 
     return () => {
-      this.subscribers = this.subscribers.filter(subscriber => subscriber !== fn);
-    }
-
+      this.subscribers = this.subscribers.filter(
+        (subscriber) => subscriber !== fn
+      );
+    };
   }
 }

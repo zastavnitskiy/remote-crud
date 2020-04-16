@@ -8,19 +8,23 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Edit, List } from "../pages";
+import { New, Edit, List } from "../pages";
 
 function App() {
   return (
     <Provider>
       <Router>
         <Switch>
+          <Route path="/employees/new">
+            <New />
+          </Route>
+
           <Route path="/employees/:employee_id">
             <Edit />
           </Route>
 
           <Route path="/employees">
-            <List></List>
+            <List />
           </Route>
 
           <Route path="/">

@@ -1,0 +1,108 @@
+import React, { useState } from "react";
+import { Form, Button, Input } from "..";
+import { Link, Redirect } from "react-router-dom";
+import { Employee, NewEmployee, UpdateEmployeeDiff, API } from "../../api/api";
+
+type EmployeeProps = keyof Employee;
+
+interface EmployeeFormProps {
+  employee: Partial<Employee>;
+  api?: API;
+}
+
+export const EmployeeForm: React.FC<EmployeeFormProps> = ({
+  employee,
+  api,
+}) => {
+  const [state, setState] = useState<Partial<Employee>>(employee);
+  const [redirect, setRedirect] = useState(false);
+
+  const handleChange = (key: EmployeeProps, value: string | number) => {
+    setState((state) => ({
+      ...state,
+      [key]: value,
+    }));
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (api) {
+      debugger;
+      if ((state as Employee).id) {
+        api.update(state as UpdateEmployeeDiff).then(() => {
+          setRedirect(true);
+        });
+      } else {
+        api.create(state as NewEmployee).then(() => {
+          setRedirect(true);
+        });
+      }
+    }
+  };
+
+  if (redirect) {
+    return <Redirect to="/employees" />;
+  }
+
+  return (
+    <Form
+      title={"Edit employee"}
+      subtitle={"Edit the information of your employee"}
+      actions={[
+        <Link to="/employees">
+          <Button>Cancel</Button>
+        </Link>,
+        <Button variant="primary" type="submit">
+          Save
+        </Button>,
+      ]}
+      onSubmit={handleSubmit}
+    >
+      {state.id ? <input type="hidden" name="id" value={state.id} /> : null}
+      <Input
+        name="name"
+        label="Name"
+        placeholder="e.g. Jane Doe"
+        description="First and last names"
+        value={state.name}
+        onChange={(e) => handleChange("name", e.target.value)}
+      ></Input>
+
+      <Input
+        name="birth_date"
+        label="Birthdate"
+        placeholder="e.g. 17/02/1990"
+        description="DD/MM/YYYY"
+        value={state.birth_date}
+        onChange={(e) => handleChange("name", e.target.value)}
+      ></Input>
+
+      <Input
+        name="job_title"
+        label="Job title"
+        placeholder="e.g. Product Manager"
+        description="What is their role?"
+        value={state.job_title}
+        onChange={(e) => handleChange("name", e.target.value)}
+      ></Input>
+
+      <Input
+        name="country_code"
+        label="Country"
+        placeholder=""
+        description="Where are they based?"
+        value={state.country_code}
+        onChange={(e) => handleChange("name", e.target.value)}
+      ></Input>
+
+      <Input
+        name="salary"
+        label="Salary"
+        placeholder="e.g. 50000"
+        description="Gross yearly salary"
+        value={state.salary}
+        onChange={(e) => handleChange("name", e.target.value)}
+      ></Input>
+    </Form>
+  );
+};

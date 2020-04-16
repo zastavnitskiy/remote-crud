@@ -1,0 +1,46 @@
+.container {
+  margin-bottom: 30px;
+}
+
+.label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.container:focus-within .label {
+  color: #624de3;
+}
+
+.description {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: rgba(0, 35, 75, 0.5);
+}
+
+.input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+
+  /* Steel Blue */
+  color: #525f7f;
+  border: none;
+  border-bottom: 1px solid #ced5db;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #624de3;
+}

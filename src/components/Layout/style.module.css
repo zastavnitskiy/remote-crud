@@ -1,0 +1,18 @@
+.container {
+}
+.content {
+  /* todo fixme */
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  background-color: #fff;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.main {
+  padding-top: 40px;
+}
