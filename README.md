@@ -12,12 +12,23 @@ increase quality in the long run.
 
 ![Preview](https://github.com/zastavnitskiy/remote-crud/raw/master/preview.png "Remote app preview")
 
-# Architecture & File structure overview
+## Running the project
+
+To run the project locally, you will need a modern build of nodejs and yarn package manager.
+
+1. cd into project directory
+2. Install dependencies: `yarn`
+3. Start development server: `yarn start` (visit http://localhost:3000)
+4. [Optional] Run tests `yarn test`
+
+This project is automatically deployed to netlify when changes are pushed in to master branch.
+
+## Architecture & File structure overview
 
 Main entry point is `./src/index.ts` file. The app is implemented as a Single Page Application and
 users react-router for client-side routing.
 
-## File structure
+### File structure
 
 `./api` directory contains a mock of backend API client. For simplicity, it doesn't
 implement any persistence; however, it's asynchronous API is designed to allow for that
@@ -33,13 +44,11 @@ are not allowed — this way, each page can be developed and deployed in isolati
 
 If there is a need to reuse a component between pages, it should be extracted into shared `./components` directory and treated with care(and tests);
 
-## Tests
+### Tests
 
 To save some time, I only wrote tests for API; and added a few test examples for App to demonstrate testing of a React component.
 
-# Other considerations
-
-## Design
+## Other considerations
 
 In some places, design elements were off the grid by a couple of pixels — I such scenarios, I didn't stick to Figma's mockups but
 allowed myself to round up and align elements. In real work, I would discuss this with design author.
