@@ -42,7 +42,9 @@ export const Input: React.SFC<Props> = ({
         }
       >
         {Object.keys(options).map((country) => (
-          <option value={country}>{options[country]}</option>
+          <option key={country} value={country}>
+            {options[country]}
+          </option>
         ))}
       </select>
     );

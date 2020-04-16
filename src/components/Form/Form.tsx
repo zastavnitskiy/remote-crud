@@ -15,8 +15,10 @@ interface ActionGroupProps {
 const ActionGroup: React.SFC<ActionGroupProps> = ({ actions }) => {
   return (
     <>
-      {actions.map((actionNode) => (
-        <div className={styles.action}>{actionNode}</div>
+      {actions.map((actionNode, index) => (
+        <div key={`action-node-${index}`} className={styles.action}>
+          {actionNode}
+        </div>
       ))}
     </>
   );

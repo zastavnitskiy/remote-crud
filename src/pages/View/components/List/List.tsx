@@ -32,7 +32,10 @@ export const List: React.SFC<Props> = ({ employees }) => {
       <ol className={styles.list}>
         {employees.map((employee) => {
           return (
-            <li className={classnames(styles.row, styles.cardRow)}>
+            <li
+              className={classnames(styles.row, styles.cardRow)}
+              key={employee.id}
+            >
               <div className={classnames(styles.column, styles.columnName)}>
                 <h3 className={styles.name}>{employee.name}</h3>
                 <div className={styles.birthDate}>{employee.birth_date}</div>

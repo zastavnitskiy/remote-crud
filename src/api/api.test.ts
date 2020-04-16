@@ -1,6 +1,6 @@
 import { API, Employee } from "./api";
 
-import sampleData from './sample_data.json'
+import sampleData from "./sample_data.json";
 
 const newEmployeeData = {
   name: "New Name",
@@ -8,17 +8,17 @@ const newEmployeeData = {
   country_code: "us",
   salary: 60000,
   birth_date: "1988-10-10",
-}
+};
 
 describe("api implementation", () => {
   describe(".get()", () => {
-    it("returns an empty list of there is no data", async () => {
+    test("returns an empty list of there is no data", async () => {
       const api = new API([]);
       const data = await api.get();
 
       expect(data).toEqual([]);
     });
-    it("returns all entries if there is data", async () => {
+    test("returns all entries if there is data", async () => {
       const api = new API(sampleData);
       const data = await api.get();
 
@@ -26,7 +26,7 @@ describe("api implementation", () => {
       expect(data).toEqual(sampleData);
     });
 
-    it('.get({ id: "xx" }) returns an array of matching entries', async () => {
+    test('.get({ id: "xx" }) returns an array of matching entries', async () => {
       const api = new API(sampleData);
       const data = await api.get({
         id: "1",
@@ -36,7 +36,7 @@ describe("api implementation", () => {
       expect(data[0]).toEqual(sampleData[0]);
     });
 
-    it('.get({ id: "xx" }) returns an empty array if there is no match', async () => {
+    test('.get({ id: "xx" }) returns an empty array if there is no match', async () => {
       const api = new API(sampleData);
       const data = await api.get({
         id: "-1",
@@ -45,7 +45,7 @@ describe("api implementation", () => {
       expect(data.length).toEqual(0);
     });
 
-    it("returns the same array instance of no changes were made", async () => {
+    test("returns the same array instance of no changes were made", async () => {
       const api = new API(sampleData);
       const dataOne = await api.get();
       const dataTwo = await api.get();
@@ -55,7 +55,7 @@ describe("api implementation", () => {
   });
 
   describe(".update()", () => {
-    it("updates an entry and updates are persisted", async () => {
+    test("updates an entry and updates are persisted", async () => {
       const api = new API(sampleData);
       const id = "2";
       const [initialEntry] = await api.get({
@@ -80,7 +80,7 @@ describe("api implementation", () => {
       expect(updatedEntry.salary).toEqual(update.salary);
     });
 
-    it("throws if there is no entry to update", async () => {
+    test("throws if there is no entry to update", async () => {
       const api = new API();
 
       await expect(
@@ -91,7 +91,7 @@ describe("api implementation", () => {
       ).rejects.toThrow();
     });
 
-    it("returns a new array instance of mutating", async () => {
+    test("returns a new array instance of mutating", async () => {
       const api = new API(sampleData);
       const oldData = await api.get();
       await api.update({
@@ -102,13 +102,13 @@ describe("api implementation", () => {
       expect(oldData === newData).toEqual(false);
     });
 
-    it("notifies subscribers", async () => {
+    test("notifies subscribers", async () => {
       const api = new API(sampleData);
       const subsriber = jest.fn();
       const updateDiff = {
         id: "2",
-        name: 'Updated Name'
-      }
+        name: "Updated Name",
+      };
       api.subscribe(subsriber);
       expect(subsriber).toHaveBeenCalledTimes(1);
 
@@ -116,14 +116,14 @@ describe("api implementation", () => {
 
       expect(subsriber).toHaveBeenCalledTimes(2);
       const [updatedEntry] = await api.get({ id: updateDiff.id });
-      expect(updatedEntry.name).toEqual(updateDiff.name)
+      expect(updatedEntry.name).toEqual(updateDiff.name);
 
       //todo generalize validation fn
     });
   });
 
   describe(".create()", () => {
-    it("creates a new entry", async () => {
+    test("creates a new entry", async () => {
       const api = new API();
 
       const newEmployeeData = {
@@ -146,7 +146,7 @@ describe("api implementation", () => {
       expect(entries[0]).toEqual(newEntry);
     });
 
-    it("returns a new array instance of mutating", async () => {
+    test("returns a new array instance of mutating", async () => {
       const api = new API(sampleData);
       const oldData = await api.get();
       await api.create({
@@ -160,7 +160,7 @@ describe("api implementation", () => {
       expect(oldData === newData).toEqual(false);
     });
 
-    it("notifies subscribers", async () => {
+    test("notifies subscribers", async () => {
       const api = new API([]);
       const subsriber = jest.fn();
       api.subscribe(subsriber);
@@ -170,8 +170,8 @@ describe("api implementation", () => {
 
       expect(subsriber).toHaveBeenCalledTimes(2);
       const [newEntry] = subsriber.mock.calls[1][0];
-      expect(newEntry.name).toEqual(newEmployeeData.name)
-      expect(newEntry.salary).toEqual(newEmployeeData.salary)
+      expect(newEntry.name).toEqual(newEmployeeData.name);
+      expect(newEntry.salary).toEqual(newEmployeeData.salary);
 
       //todo generalize validation fn
     });
