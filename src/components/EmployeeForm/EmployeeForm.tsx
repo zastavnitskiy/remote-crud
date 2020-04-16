@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Input } from "..";
+import { Form, Input, Button } from "..";
 import { Link, Redirect } from "react-router-dom";
 import { Employee, NewEmployee, UpdateEmployeeDiff, API } from "../../api/api";
 import { countries } from "../../helpers/countries";

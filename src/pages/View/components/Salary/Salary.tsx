@@ -1,6 +1,6 @@
 import React from "react";
-import { Employee } from "../../api/api";
-import { classnames } from "../../helpers/classnames";
+import { Employee } from "../../../../api/api";
+import { classnames } from "../../../../helpers/classnames";
 import styles from "./styles.module.css";
 
 interface Props {

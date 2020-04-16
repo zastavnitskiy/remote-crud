@@ -1,6 +1,6 @@
 import React from "react";
-import { Employee } from "../../api/api";
-import { countries } from "../../helpers/countries";
+import { Employee } from "../../../../api/api";
+import { countries } from "../../../../helpers/countries";
 
 interface Props {
   countryCode: Employee["country_code"];

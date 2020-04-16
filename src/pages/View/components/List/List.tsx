@@ -1,9 +1,11 @@
 import React from "react";
-import { Button, Salary, Country } from "../";
-import { Employee } from "../../api/api";
-import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import { classnames } from "../../helpers/classnames";
+import { Button } from "../../../../components";
+import { classnames } from "../../../../helpers/classnames";
+import { Salary } from "../Salary/Salary";
+import { Country } from "../Country/Country";
+import { Employee } from "../../../../api/api";
+import styles from "./styles.module.css";
 
 interface Props {
   employees: Employee[];

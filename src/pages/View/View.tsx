@@ -1,5 +1,6 @@
 import React from "react";
-import { Layout, Button, List } from "../../components";
+import { Layout, Button } from "../../components";
+import { List } from "./components/List/List";
 import { Link } from "react-router-dom";
 import { useAPI } from "../../api";
 import styles from "./styles.module.css";

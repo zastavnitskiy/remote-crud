@@ -1,11 +1,7 @@
 export { App } from "./App/App";
 export { Button } from "./Button/Button";
-export { Country } from "./Country/Country";
-export { EmployeeForm } from "./EmployeeForm/EmployeeForm";
 export { Form } from "./Form/Form";
 export { Header } from "./Header/Header";
 export { Input } from "./Input/Input";
 export { Layout } from "./Layout/Layout";
-export { List } from "./List/List";
-export { Salary } from "./Salary/Salary";
 export { User } from "./User/User";
