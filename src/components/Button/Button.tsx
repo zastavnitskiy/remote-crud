@@ -14,17 +14,25 @@ export const Button: React.SFC<Props> = ({
   children,
   className,
   icon,
+  disabled,
+  type,
   ...props
 }) => {
   const classes = classnames(
     className,
     styles.btn,
     variant === "primary" && styles.btnPrimary,
-    variant === "secondary" && styles.btnSecondary
+    variant === "secondary" && styles.btnSecondary,
+    disabled && styles.btnDisabled
   );
 
   return (
-    <button className={classes} {...props}>
+    <button
+      className={classes}
+      {...props}
+      disabled={disabled}
+      type={type || "button"}
+    >
       {icon === "human" ? <i className={styles.btnIconHuman}></i> : null}
       <span className={styles.label}>{children}</span>
     </button>

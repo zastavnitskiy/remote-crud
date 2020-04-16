@@ -79,4 +79,23 @@
   color: #778ca3;
 }
 
-/* 206, 217, 159, 196 */
+@media (max-width: 1120px) {
+  .headerRow {
+    display: none;
+  }
+
+  .cardRow {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .cardRow .column {
+    flex: 0 1 100%;
+  }
+  .cardRow .columnActions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+  }
+}

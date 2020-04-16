@@ -16,9 +16,10 @@
   display: flex;
   text-decoration: none;
   justify-content: center;
+  white-space: nowrap;
 }
 
-.btn:hover {
+.btn:hover:not(.btnDisabled) {
   cursor: pointer;
 }
 
@@ -28,11 +29,15 @@
   box-shadow: 0px 6px 12px rgba(98, 77, 227, 0.3);
 }
 
-.btnPrimary:hover {
+.btnPrimary.btnDisabled {
+  color: #bbb;
+}
+
+.btnPrimary:hover:not(.btnDisabled) {
   background-color: #553ee1;
 }
 
-.btnSecondary:hover {
+.btnSecondary:hover:not(.btnDisabled) {
   background-color: #f0eefc;
 }
 

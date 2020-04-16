@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Form, Input, Button } from "..";
 import { Link, Redirect } from "react-router-dom";
-import { Employee, NewEmployee, UpdateEmployeeDiff, API } from "../../api/api";
+import {
+  Employee,
+  NewEmployee,
+  UpdateEmployeeDiff,
+  API,
+  EmptyEmployee,
+} from "../../api/api";
 import { countries } from "../../helpers/countries";
 
 type EmployeeProps = keyof Employee;
@@ -9,6 +15,10 @@ type EmployeeProps = keyof Employee;
 interface EmployeeFormProps {
   employee: Partial<Employee>;
   api?: API;
+}
+
+function validate(employee: Partial<Employee>): boolean {
+  return employee.name !== EmptyEmployee.name;
 }
 
 export const EmployeeForm: React.FC<EmployeeFormProps> = ({
@@ -27,7 +37,8 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (api) {
+    console.log("submit", canBeCreated);
+    if (canBeCreated && api) {
       if ((state as Employee).id) {
         api.update(state as UpdateEmployeeDiff).then(() => {
           setRedirect(true);
@@ -40,7 +51,10 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
     }
   };
 
+  const canBeCreated = validate(state);
+
   if (redirect) {
+    console.log("here");
     return <Redirect to="/employees" />;
   }
 
@@ -52,7 +66,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         <Link to="/employees">
           <Button>Cancel</Button>
         </Link>,
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={!canBeCreated}>
           Save
         </Button>,
       ]}

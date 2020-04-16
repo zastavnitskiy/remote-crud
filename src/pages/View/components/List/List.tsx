@@ -52,7 +52,7 @@ export const List: React.SFC<Props> = ({ employees }) => {
                 className={classnames(styles.column, styles.columnSalary)}
                 salary={employee.salary}
               />
-              <div className={classnames(styles.column, styles.Actions)}>
+              <div className={classnames(styles.column, styles.columnActions)}>
                 <Link to={`/employees/${employee.id}`}>
                   <Button>Edit</Button>
                 </Link>

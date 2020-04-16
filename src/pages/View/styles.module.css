@@ -32,3 +32,13 @@
 .actions {
   margin-left: auto;
 }
+
+@media (max-width: 1200px) {
+  .header {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  .titleGroup {
+    flex-wrap: wrap;
+  }
+}

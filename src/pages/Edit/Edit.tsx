@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout } from "../../components";
+import { Layout, Button } from "../../components";
 import { useAPI } from "../../api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Employee } from "../../api/api";
 import { EmployeeForm } from "../../components/EmployeeForm/EmployeeForm";
 
@@ -15,7 +15,15 @@ export const Edit: React.SFC = () => {
   const employee = employees.find(({ id }) => id === params.employee_id);
 
   if (!employee) {
-    return <div>Employee not found</div>;
+    return (
+      <Layout>
+        <h3>Employee not found</h3>
+
+        <Link to="/employees">
+          <Button variant="primary">View Employees</Button>
+        </Link>
+      </Layout>
+    );
   }
 
   return (

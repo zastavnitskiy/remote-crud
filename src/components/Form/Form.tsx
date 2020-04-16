@@ -32,7 +32,12 @@ export const Form: React.SFC<Props> = ({
   onSubmit,
 }) => {
   return (
-    <form className={styles.container} onSubmit={onSubmit}>
+    <form
+      className={styles.container}
+      onSubmit={onSubmit}
+      action="/employees"
+      method="post"
+    >
       <hgroup className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>

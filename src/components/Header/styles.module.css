@@ -3,3 +3,9 @@
   flex-direction: row-reverse;
   padding-right: 15px;
 }
+
+@media (max-width: 1120px) {
+  .header {
+    padding-right: 0;
+  }
+}
