@@ -1,4 +1,4 @@
-# An example of a CRUD app([view](http://remote-test.netlify.app/)).
+# Simple employee editor app ([view](http://remote-test.netlify.app/)).
 
 This project is bootstrapped with Create React App and configured to use
 Typescript and CSS modules.
